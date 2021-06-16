@@ -4,7 +4,10 @@ import { View, Text, Image, StyleSheet } from "react-native";
 const logo = () => {
   return (
     <View>
-      <Image style={style.container} source={require("../assets/icon.png")} />
+      <Image
+        style={style.container}
+        source={require("../assets/favicon.png")}
+      />
     </View>
   );
 };

@@ -14,9 +14,27 @@ const Home = ({ navigation }) => {
           Welcome to 4IN Shield! Sign in to continue
         </Text>
       </View>
-      <View style={styles.buttonStyle}>
-        <SignInButton style={{ height: 100 }} title="Sign in with Email" />
-      </View>
+
+      <SignInButton
+        title="Sign In with Email"
+        image={require("../assets/mail.png")}
+        nav="LoginScreen"
+        style={styles.mailStyle}
+      />
+
+      <SignInButton
+        title="Sign In with Gmail"
+        image={require("../assets/google.png")}
+        nav="LoginScreen"
+        style={styles.gmailStyle}
+      />
+
+      <SignInButton
+        title="Sign In with Facebook"
+        image={require("../assets/facebook.png")}
+        nav="RoleScreen"
+        style={styles.facebookStyle}
+      />
     </>
   );
 };
@@ -33,12 +51,39 @@ const styles = StyleSheet.create({
     lineHeight: 30,
   },
 
-  buttonStyle: {
+  mailStyle: {
     position: "absolute",
     left: 50,
     right: 50,
-
+    flexDirection: "row",
     top: 350,
+    backgroundColor: "white",
+    borderRadius: 10,
+    borderColor: "black",
+    borderStyle: "solid",
+  },
+
+  gmailStyle: {
+    position: "absolute",
+    left: 50,
+    right: 50,
+    flexDirection: "row",
+    top: 450,
+    backgroundColor: "white",
+    borderRadius: 10,
+    borderColor: "black",
+    borderStyle: "solid",
+  },
+  facebookStyle: {
+    position: "absolute",
+    left: 50,
+    right: 50,
+    flexDirection: "row",
+    top: 550,
+    backgroundColor: "white",
+    borderRadius: 10,
+    borderColor: "black",
+    borderStyle: "solid",
   },
 });
 
