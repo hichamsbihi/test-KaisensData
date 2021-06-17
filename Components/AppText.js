@@ -1,19 +1,21 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 
-const AppText = ({ text }) => {
+const AppText = ({ text, style }) => {
+  const styleText = { ...styles.container, ...style };
   return (
     <View>
-      <Text style={style.container}>{text}</Text>
+      <Text style={styleText}>{text}</Text>
     </View>
   );
 };
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     position: "absolute",
     top: 150,
-    fontSize: 30,
+    left: 60,
+    fontSize: 20,
     fontWeight: "bold",
     textAlign: "center",
   },

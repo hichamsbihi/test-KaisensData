@@ -3,17 +3,14 @@ import { View, Text, StyleSheet } from "react-native";
 import Logo from "../Components/logo";
 import SignInButton from "../Components/SignInButton";
 
-const Home = ({ navigation }) => {
+const Home = () => {
   return (
     <>
-      <View>
-        <Logo />
-      </View>
-      <View>
-        <Text style={styles.title}>
-          Welcome to 4IN Shield! Sign in to continue
-        </Text>
-      </View>
+      <Logo />
+
+      <Text style={styles.title}>
+        Welcome to 4IN Shield! Sign in to continue
+      </Text>
 
       <SignInButton
         title="Sign In with Email"
@@ -32,7 +29,7 @@ const Home = ({ navigation }) => {
       <SignInButton
         title="Sign In with Facebook"
         image={require("../assets/facebook.png")}
-        nav="RoleScreen"
+        nav="LoginScreen"
         style={styles.facebookStyle}
       />
     </>
