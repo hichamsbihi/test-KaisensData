@@ -1,33 +1,52 @@
-import React from "react";
-import { View, Text, Image, StyleSheet } from "react-native";
-import AppText from "../Components/AppText";
+import React, { useEffect, useState } from "react";
+import { View, Text, StyleSheet, TextInput } from "react-native";
+import Logo from "../Components/logo";
 import AppButton from "../Components/AppButton";
+import AppText from "../Components/AppText";
+import RNAndroidInstalledApps from "react-native-android-installed-apps";
+import RNAndroidAppList from "react-native-android-app-list";
+import {
+  AppInstalledChecker,
+  CheckPackageInstallation,
+} from "react-native-check-app-install";
+const showMe = console.log;
+const Welcome = ({ navigation }) => {
+  const [appsList, setAppsList] = useState([]);
 
-const Welcome = () => {
+  const getApps = async () => {
+    const listApp = await AppInstalledChecker.getAppList();
+    //showMe(listApp);
+    setAppsList(listApp);
+    //showMe(appsList);
+    navigation.navigate("ApplistScreen", { appsList });
+  };
+
   return (
     <>
-      <View>
-        <Text style={styles.title}>Welcome to 4IN Shield</Text>
-      </View>
-      <Image style={styles.img} source={require("../assets/chatting.png")} />
-      <AppButton nav="QrCodeScreen" title="Start" />
+      <Logo />
+      <AppText
+        text="Welcome to 4In Shield!
+Sign in to continue"
+        style={styles.text}
+      />
+
+      <AppButton
+        title="Show Apps"
+        style={styles.ShowApp}
+        onPress={() => getApps()}
+      />
     </>
   );
 };
 
 const styles = StyleSheet.create({
-  img: {
-    position: "absolute",
-    top: 240,
+  text: {
+    top: 200,
+    left: 90,
   },
 
-  title: {
-    position: "absolute",
-    top: 150,
-    left: 65,
-    fontSize: 25,
-    fontWeight: "bold",
-    textAlign: "center",
+  ShowApp: {
+    top: 350,
   },
 });
 
